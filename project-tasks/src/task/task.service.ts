@@ -24,7 +24,7 @@ export class TaskService {
             description,
             status: TaskStatus.PENDING,
         }
-        this.tasks.push()
+        this.tasks.push(task)
 
         return task
      }
