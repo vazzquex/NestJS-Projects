@@ -17,6 +17,7 @@ export class TaskService {
     getAllTasks() {
         return this.tasks
     }
+
     cerateTask(title: string, description: string) {
         const task = {
             id: v4(), //id from uuid
@@ -28,8 +29,12 @@ export class TaskService {
 
         return task
      }
-    updateTask() { }
-    deleteTasById() { }
+    updateTaskById(id: String) {
+     }
+
+    deleteTaskById(id: string) {
+        this.tasks = this.tasks.filter(task => task.id != id)
+     }
 
 }
 
