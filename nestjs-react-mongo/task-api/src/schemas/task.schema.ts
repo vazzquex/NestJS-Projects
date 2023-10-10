@@ -1,4 +1,4 @@
-import { Prop, Schema } from "@nestjs/mongoose"
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 
 @Schema({
     timestamps: true
@@ -12,9 +12,16 @@ class Task {
 })
 title: String
 
-@Prop()
+@Prop({
+    trim: true
+})
 description: String
 
-@Prop()
+@Prop({
+    default: false
+})
 done: Boolean
 }
+
+
+export const taskSchema = SchemaFactory.createForClass(Task)
