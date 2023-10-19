@@ -25,5 +25,10 @@ export class TasksController {
         return 'delete task';
     }
 
+    @Put(':id')
+    update(){
+        return 'update task';
+    }
+
 
 }
