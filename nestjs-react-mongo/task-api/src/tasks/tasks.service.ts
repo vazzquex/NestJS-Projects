@@ -6,16 +6,16 @@ import { createTaskDto } from '../dto/create.task.dto'
 
 @Injectable()
 export class TasksService {
-    constructor(@InjectModel(Task.name) private taskModel: Model<Task>) {}
+    constructor(@InjectModel(Task.name) private taskModel: Model<Task>) { }
 
-    getAll(){
-        this.taskModel.find()
+    getAll() {
+        return this.taskModel.find()
     }
 
     async create(createTask: createTaskDto) {
         const newTask = new this.taskModel(createTask);
         return await newTask.save();
-        
+
     }
 
     async getById(id: String) {
@@ -23,10 +23,10 @@ export class TasksService {
     }
 
     async deleteById(id: String) {
-        await this.taskModel.findOneAndDelete(id)
+        return await this.taskModel.findOneAndDelete(id)
     }
 
-    async update(id: string, task: any ){
-       return await this.taskModel.findByIdAndUpdate(id, task)
+    async update(id: string, task: any) {
+        return await this.taskModel.findByIdAndUpdate(id, task)
     }
 }
