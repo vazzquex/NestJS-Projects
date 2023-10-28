@@ -28,8 +28,8 @@ export class TasksController {
     }
 
     @Put(':id')
-    update(){
-        return 'update task';
+    update(@Param('id') id: string, @Body() body: any){
+        return this.tasksService.update(id, body);
     }
 
 

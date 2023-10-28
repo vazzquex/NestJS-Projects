@@ -27,6 +27,6 @@ export class TasksService {
     }
 
     async update(id: string, task: any) {
-        return await this.taskModel.findByIdAndUpdate(id, task)
+        return await this.taskModel.findByIdAndUpdate(id, task, {new:true})
     }
 }
